@@ -8,6 +8,9 @@ public class SubmissionParameter {
     private String sourceCode;
     @JsonProperty("language_id")
     private Integer languageId;
+    @JsonProperty("expected_output")
+    private String expectedOutput;
+
 
     public SubmissionParameter() {
     }
