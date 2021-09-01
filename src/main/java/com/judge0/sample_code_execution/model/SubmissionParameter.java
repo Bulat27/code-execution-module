@@ -1,8 +1,12 @@
 package com.judge0.sample_code_execution.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class SubmissionParameter {
 
+    @JsonProperty("source_code")
     private String sourceCode;
+    @JsonProperty("language_id")
     private Integer languageId;
 
     public SubmissionParameter() {

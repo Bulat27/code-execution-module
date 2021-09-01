@@ -1,22 +1,28 @@
 package com.judge0.sample_code_execution.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDateTime;
 
+//TODO: Vidi da li ti treba ova anotacija uopste
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Response {
 
+    @JsonProperty("stdout")
     private String output;
+    @JsonProperty("expected_output")
     private String expectedOutput;
-    private String status;
-    private LocalDateTime date;
+    private Status status;
+//    private LocalDateTime date;
 
     public Response() {
     }
 
-    public Response(String output, String expectedOutput, String status, LocalDateTime date) {
+    public Response(String output, String expectedOutput, Status status) {
         this.output = output;
         this.expectedOutput = expectedOutput;
         this.status = status;
-        this.date = date;
     }
 
     public String getOutput() {
@@ -35,19 +41,29 @@ public class Response {
         this.expectedOutput = expectedOutput;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
-    public LocalDateTime getDate() {
-        return date;
-    }
+//    public LocalDateTime getDate() {
+//        return date;
+//    }
+//
+//    public void setDate(LocalDateTime date) {
+//        this.date = date;
+//    }
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
+
+    @Override
+    public String toString() {
+        return "Response{" +
+                "output='" + output + '\'' +
+                ", expectedOutput='" + expectedOutput + '\'' +
+                ", status=" + status +
+                '}';
     }
 }
