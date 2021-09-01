@@ -14,6 +14,8 @@ public class Response {
     @JsonProperty("expected_output")
     private String expectedOutput;
     private Status status;
+    @JsonProperty("compile_output")
+    private String compileOutput;
 //    private LocalDateTime date;
 
     public Response() {
@@ -49,7 +51,15 @@ public class Response {
         this.status = status;
     }
 
-//    public LocalDateTime getDate() {
+    public String getCompileOutput() {
+        return compileOutput;
+    }
+
+    public void setCompileOutput(String compileOutput) {
+        this.compileOutput = compileOutput;
+    }
+
+    //    public LocalDateTime getDate() {
 //        return date;
 //    }
 //
