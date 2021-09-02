@@ -28,5 +28,4 @@ public class CodeExecutionController {
     public ResponseEntity<Response> executeCode(@RequestBody @Valid SubmissionParameter submissionParameter){
         return ResponseEntity.ok(codeExecutionService.submitCode(submissionParameter));
     }
-
 }
