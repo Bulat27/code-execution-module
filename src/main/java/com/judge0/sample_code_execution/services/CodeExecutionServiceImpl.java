@@ -1,7 +1,6 @@
 package com.judge0.sample_code_execution.services;
 
 import com.judge0.sample_code_execution.model.Response;
-import com.judge0.sample_code_execution.model.ResponseJsonFields;
 import com.judge0.sample_code_execution.model.SubmissionParameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +19,6 @@ public class CodeExecutionServiceImpl implements CodeExecutionService{
 
     @Override
     public Response submitCode(SubmissionParameter submissionParameter)  {
-        ResponseJsonFields responseJsonFields = restTemplate.postForObject(URL, submissionParameter, ResponseJsonFields.class);
-        return new Response(responseJsonFields, submissionParameter.getExpectedOutput());
+        return restTemplate.postForObject(URL, submissionParameter, Response.class);
     }
 }

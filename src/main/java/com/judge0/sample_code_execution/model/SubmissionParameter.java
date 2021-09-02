@@ -17,6 +17,7 @@ public class SubmissionParameter {
     @JsonProperty("stdin")
     private String input;
 
+
     public SubmissionParameter() {
     }
 
