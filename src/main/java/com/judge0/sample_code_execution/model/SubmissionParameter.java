@@ -6,6 +6,7 @@ import javax.validation.constraints.NotNull;
 
 public class SubmissionParameter {
 
+    @NotNull
     @JsonProperty("source_code")
     private String sourceCode;
     @JsonProperty("language_id")
