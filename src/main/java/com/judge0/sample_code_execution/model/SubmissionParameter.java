@@ -1,8 +1,6 @@
 package com.judge0.sample_code_execution.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.judge0.sample_code_execution.languages.ProgrammingLanguages;
 
 import javax.validation.constraints.NotNull;
 
@@ -15,15 +13,18 @@ public class SubmissionParameter {
     private Integer languageId;
     @JsonProperty("expected_output")
     private String expectedOutput;
+    @JsonProperty("stdin")
+    private String input;
 
 
     public SubmissionParameter() {
     }
 
-    public SubmissionParameter(String sourceCode, Integer languageId, String expectedOutput) {
+    public SubmissionParameter(String sourceCode, Integer languageId, String expectedOutput, String input) {
         this.sourceCode = sourceCode;
         this.languageId = languageId;
         this.expectedOutput = expectedOutput;
+        this.input = input;
     }
 
     public String getSourceCode() {
@@ -48,5 +49,13 @@ public class SubmissionParameter {
 
     public void setExpectedOutput(String expectedOutput) {
         this.expectedOutput = expectedOutput;
+    }
+
+    public String getInput() {
+        return input;
+    }
+
+    public void setInput(String input) {
+        this.input = input;
     }
 }
