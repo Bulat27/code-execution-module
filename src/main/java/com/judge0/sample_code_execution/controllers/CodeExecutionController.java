@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 
 @Controller
 @RequestMapping("/api/code")
@@ -24,7 +26,7 @@ public class CodeExecutionController {
     }
 
     @PostMapping
-    public ResponseEntity<Response> executeCode(@RequestBody SubmissionParameter submissionParameter){
+    public ResponseEntity<Response> executeCode(@RequestBody @Valid SubmissionParameter submissionParameter){
         return ResponseEntity.ok(codeExecutionService.submitCode(submissionParameter));
     }
 

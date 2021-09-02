@@ -16,15 +16,20 @@ public class Response {
     private Status status;
     @JsonProperty("compile_output")
     private String compileOutput;
+    private String stderr;
+    private String message;
 //    private LocalDateTime date;
 
     public Response() {
     }
 
-    public Response(String output, String expectedOutput, Status status) {
+    public Response(String output, String expectedOutput, Status status, String compileOutput, String stderr, String message) {
         this.output = output;
         this.expectedOutput = expectedOutput;
         this.status = status;
+        this.compileOutput = compileOutput;
+        this.stderr = stderr;
+        this.message = message;
     }
 
     public String getOutput() {
@@ -57,6 +62,22 @@ public class Response {
 
     public void setCompileOutput(String compileOutput) {
         this.compileOutput = compileOutput;
+    }
+
+    public String getStderr() {
+        return stderr;
+    }
+
+    public void setStderr(String stderr) {
+        this.stderr = stderr;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     //    public LocalDateTime getDate() {
