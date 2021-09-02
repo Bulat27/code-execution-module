@@ -1,7 +1,6 @@
 package com.judge0.sample_code_execution.controllers;
 
 import com.judge0.sample_code_execution.model.Response;
-import com.judge0.sample_code_execution.model.StatusToken;
 import com.judge0.sample_code_execution.model.SubmissionParameter;
 import com.judge0.sample_code_execution.services.CodeExecutionService;
 import org.springframework.beans.factory.annotation.Autowired;
