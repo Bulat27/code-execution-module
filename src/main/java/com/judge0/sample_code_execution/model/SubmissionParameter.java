@@ -1,6 +1,7 @@
 package com.judge0.sample_code_execution.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import custom_annotations.SupportedProgrammingLanguage;
 
 import javax.validation.constraints.NotNull;
 
@@ -11,6 +12,7 @@ public class SubmissionParameter {
     private String sourceCode;
     @JsonProperty("language_id")
     @NotNull
+    @SupportedProgrammingLanguage
     private Integer languageId;
     @JsonProperty("expected_output")
     private String expectedOutput;

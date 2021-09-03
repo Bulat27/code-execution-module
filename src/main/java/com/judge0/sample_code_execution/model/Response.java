@@ -3,9 +3,6 @@ package com.judge0.sample_code_execution.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.time.LocalDateTime;
-
-//TODO: Vidi da li ti treba ova anotacija uopste
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Response {
 
@@ -19,7 +16,6 @@ public class Response {
     private String stderr;
     private String message;
     private String wrongAnswerMessage;
-//    private LocalDateTime date;
 
     public Response() {
     }
@@ -88,23 +84,5 @@ public class Response {
 
     public void setWrongAnswerMessage(String wrongAnswerMessage) {
         this.wrongAnswerMessage = wrongAnswerMessage;
-    }
-
-    //    public LocalDateTime getDate() {
-//        return date;
-//    }
-//
-//    public void setDate(LocalDateTime date) {
-//        this.date = date;
-//    }
-
-
-    @Override
-    public String toString() {
-        return "Response{" +
-                "output='" + output + '\'' +
-                ", expectedOutput='" + expectedOutput + '\'' +
-                ", status=" + status +
-                '}';
     }
 }
