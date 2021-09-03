@@ -26,7 +26,6 @@ public class CodeExecutionServiceImpl implements CodeExecutionService{
 
     private Response getResponse(SubmissionParameter submissionParameter){
         Response response = Optional.ofNullable(restTemplate.postForObject(URL, submissionParameter, Response.class)).orElseThrow();
-        //TODO:Vidi sta ces sa ovim null-om i ovde napravi poruku ako je status Wrong Answer
 
         response.setExpectedOutput(submissionParameter.getExpectedOutput());
         if(response.getStatus().getId() == 4) response.

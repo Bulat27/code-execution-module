@@ -34,8 +34,7 @@ public class CodeExecutionController {
         return ResponseEntity.ok(codeExecutionService.submitCode(submissionParameter));
     }
 
-
-    //TODO: Vidi da ovo posle prebacis u ControllerAdvisor
+    //These should be in the ControllerAdvisor. For some reason, in this project it only works here. I will see its behaviour in the real project.
     @ExceptionHandler({HttpClientErrorException.class})
     public ResponseEntity<Object> handleHttpClientErrorException(HttpClientErrorException ex, WebRequest request){
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);

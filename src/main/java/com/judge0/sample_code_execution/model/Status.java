@@ -20,12 +20,4 @@ public class Status {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    @Override
-    public String toString() {
-        return "Status{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                '}';
-    }
 }
