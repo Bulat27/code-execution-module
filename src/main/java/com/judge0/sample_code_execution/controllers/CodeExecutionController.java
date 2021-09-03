@@ -15,6 +15,7 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.context.request.WebRequest;
 
 import javax.validation.Valid;
+import java.util.NoSuchElementException;
 
 
 @Controller
@@ -33,8 +34,15 @@ public class CodeExecutionController {
         return ResponseEntity.ok(codeExecutionService.submitCode(submissionParameter));
     }
 
+
+    //TODO: Vidi da ovo posle prebacis u ControllerAdvisor
     @ExceptionHandler({HttpClientErrorException.class})
     public ResponseEntity<Object> handleHttpClientErrorException(HttpClientErrorException ex, WebRequest request){
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
+    @ExceptionHandler({NoSuchElementException.class})
+    public ResponseEntity<Object> handleNoSuchElementException(NoSuchElementException ex, WebRequest request){
+        return new ResponseEntity<>("There is something wrong with the response. Please check your input and try again.", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

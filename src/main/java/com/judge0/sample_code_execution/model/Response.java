@@ -18,18 +18,20 @@ public class Response {
     private String compileOutput;
     private String stderr;
     private String message;
+    private String wrongAnswerMessage;
 //    private LocalDateTime date;
 
     public Response() {
     }
 
-    public Response(String output, String expectedOutput, Status status, String compileOutput, String stderr, String message) {
+    public Response(String output, String expectedOutput, Status status, String compileOutput, String stderr, String message, String wrongAnswerMessage) {
         this.output = output;
         this.expectedOutput = expectedOutput;
         this.status = status;
         this.compileOutput = compileOutput;
         this.stderr = stderr;
         this.message = message;
+        this.wrongAnswerMessage = wrongAnswerMessage;
     }
 
     public String getOutput() {
@@ -78,6 +80,14 @@ public class Response {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getWrongAnswerMessage() {
+        return wrongAnswerMessage;
+    }
+
+    public void setWrongAnswerMessage(String wrongAnswerMessage) {
+        this.wrongAnswerMessage = wrongAnswerMessage;
     }
 
     //    public LocalDateTime getDate() {

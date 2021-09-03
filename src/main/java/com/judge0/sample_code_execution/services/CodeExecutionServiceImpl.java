@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Optional;
+
 @Service
 public class CodeExecutionServiceImpl implements CodeExecutionService{
 
@@ -19,6 +21,16 @@ public class CodeExecutionServiceImpl implements CodeExecutionService{
 
     @Override
     public Response submitCode(SubmissionParameter submissionParameter)  {
-        return restTemplate.postForObject(URL, submissionParameter, Response.class);
+        return getResponse(submissionParameter);
+    }
+
+    private Response getResponse(SubmissionParameter submissionParameter){
+        Response response = Optional.ofNullable(restTemplate.postForObject(URL, submissionParameter, Response.class)).orElseThrow();
+        //TODO:Vidi sta ces sa ovim null-om i ovde napravi poruku ako je status Wrong Answer
+
+        response.setExpectedOutput(submissionParameter.getExpectedOutput());
+        if(response.getStatus().getId() == 4) response.
+                setWrongAnswerMessage("Your output: " + response.getOutput() + "doesn't match the expected output: " + response.getExpectedOutput());
+        return response;
     }
 }
