@@ -13,19 +13,20 @@ public class Response {
     private Status status;
     @JsonProperty("compile_output")
     private String compileOutput;
-    private String stderr;
+    @JsonProperty("stderr")
+    private String standardError;
     private String message;
     private String wrongAnswerMessage;
 
     public Response() {
     }
 
-    public Response(String output, String expectedOutput, Status status, String compileOutput, String stderr, String message, String wrongAnswerMessage) {
+    public Response(String output, String expectedOutput, Status status, String compileOutput, String standardError, String message, String wrongAnswerMessage) {
         this.output = output;
         this.expectedOutput = expectedOutput;
         this.status = status;
         this.compileOutput = compileOutput;
-        this.stderr = stderr;
+        this.standardError = standardError;
         this.message = message;
         this.wrongAnswerMessage = wrongAnswerMessage;
     }
@@ -62,12 +63,12 @@ public class Response {
         this.compileOutput = compileOutput;
     }
 
-    public String getStderr() {
-        return stderr;
+    public String getStandardError() {
+        return standardError;
     }
 
-    public void setStderr(String stderr) {
-        this.stderr = stderr;
+    public void setStandardError(String standardError) {
+        this.standardError = standardError;
     }
 
     public String getMessage() {

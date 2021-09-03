@@ -11,6 +11,7 @@ import java.util.Optional;
 @Service
 public class CodeExecutionServiceImpl implements CodeExecutionService{
 
+    private static final int WRONG_ANSWER_STATUS_ID = 4;
     private static final String URL = "https://ce.judge0.com/submissions/?base64_encoded=false&wait=true";
     private final RestTemplate restTemplate;
 
@@ -28,8 +29,8 @@ public class CodeExecutionServiceImpl implements CodeExecutionService{
         Response response = Optional.ofNullable(restTemplate.postForObject(URL, submissionParameter, Response.class)).orElseThrow();
 
         response.setExpectedOutput(submissionParameter.getExpectedOutput());
-        if(response.getStatus().getId() == 4) response.
-                setWrongAnswerMessage("Your output: " + response.getOutput() + "doesn't match the expected output: " + response.getExpectedOutput());
+        if(response.getStatus().getId() == WRONG_ANSWER_STATUS_ID)
+            response.setWrongAnswerMessage("Your output: " + response.getOutput() + "doesn't match the expected output: " + response.getExpectedOutput());
         return response;
     }
 }
